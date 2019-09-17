@@ -116,7 +116,6 @@ class ssh_manager ():
             while not re.search('\r\n.*#',buffer):
                 resp = self.chan.recv(ssh_manager.CHANNEL_LENGTH)
                 buffer += resp.decode()
-                print(buffer)
 
         # we retrieve the router's name, prompt, config prompt
         self.prompt = re.search('(\r\n.*#)',buffer).group(1)
